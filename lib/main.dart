@@ -1,3 +1,4 @@
+import 'package:farmcart/cart.dart';
 import 'package:farmcart/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -9,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      color: Colors.white,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -58,7 +60,6 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
 
     final emailField = TextField(
-      obscureText: true,
       style: style,
       decoration: InputDecoration(
           contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
@@ -80,11 +81,15 @@ class _MyHomePageState extends State<MyHomePage> {
     final loginButton = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(30.0),
-      color: Colors.green[700],
+      color: Color(0xff008315),
       child: MaterialButton(
         minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return CartDisplay();
+          }),);
+        },
         child: Text("Login",
             textAlign: TextAlign.center,
             style: style.copyWith(
@@ -95,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
       onPressed: () {
         //forgot password screen
       },
-      textColor: Colors.green[700],
+      textColor: Color(0xff008315),
       child: Text('Forgot Password'),
     );
     final signUp = Container(
@@ -103,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           Text('Does not have account?'),
           FlatButton(
-            textColor: Colors.green[800],
+            textColor: Color(0xff008315),
             child: Text(
               'Sign up',
               style: TextStyle(fontSize: 20),
@@ -121,6 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
 
     return Scaffold(
+        backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Center(
             child: Container(
@@ -167,5 +173,5 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   static const _shapeSVG_a50c2f5e330841039c704249200df18e =
-      '<svg viewBox="100.0 -20.0 200.0 100" ><defs><linearGradient id="gradient" x1="0.544051" y1="1.19412" x2="0.521159" y2="-0.219403"><stop offset="0.0" stop-color="#ff984c22"  /><stop offset="0.490928" stop-color="#ff356f23"  /><stop offset="1.0" stop-color="#ff43a047"  /></linearGradient></defs><path transform="translate(0.0, 24.0)" d="M -44 96 L -13 96 C -13 96 1.572830200195313 63.95188903808594 73 69 C 169 72 199 120 306 105 C 424 85 478 11 478 11 L 478 -95 L -44 -95 L -44 96 Z" fill="url(#gradient)" stroke="#707070" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
+      '<svg viewBox="100.0 -20.0 50.0 100" ><defs><linearGradient id="gradient" x1="0.544051" y1="1.19412" x2="0.521159" y2="-0.219403"><stop offset="0.0" stop-color="#ff984c22"  /><stop offset="0.490928" stop-color="#ff356f23"  /><stop offset="1.0" stop-color="#ff43a047"  /></linearGradient></defs><path transform="translate(0.0, 24.0)" d="M -44 96 L -13 96 C -13 96 1.572830200195313 63.95188903808594 73 69 C 169 72 199 120 306 105 C 424 85 478 11 478 11 L 478 -95 L -44 -95 L -44 96 Z" fill="url(#gradient)" stroke="#707070" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
 }
