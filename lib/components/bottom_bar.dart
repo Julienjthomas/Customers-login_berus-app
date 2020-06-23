@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../profile_page.dart';
+
 class BottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -31,9 +33,20 @@ class BottomBar extends StatelessWidget {
                     Icons.home,
                     color: Colors.green,
                   ),
-                  Icon(
-                    Icons.person,
-                    color: Color(0xff676e79),
+                  FlatButton(
+                    child: Icon(
+                      Icons.person,
+                      color: Color(0xff676e79),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) {
+                          return ProfilePage();
+                        },
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
