@@ -1,3 +1,4 @@
+import 'package:farmcart/cartpage.dart';
 import 'package:flutter/material.dart';
 
 import '../profile_page.dart';
@@ -61,9 +62,17 @@ class BottomBar extends StatelessWidget {
                     Icons.search,
                     color: Colors.green,
                   ),
-                  Icon(
-                    Icons.shopping_basket,
-                    color: Color(0xff676e79),
+                  FlatButton(
+                    child: Icon(
+                      Icons.shopping_basket,
+                      color: Color(0xff676e79),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context, MaterialPageRoute(builder: (context) {
+                        return CartScreen();
+                      }),);
+                    },
                   ),
                 ],
               ),
