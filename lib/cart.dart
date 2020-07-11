@@ -1,7 +1,8 @@
 import 'package:farmcart/components/bottom_bar.dart';
 import 'package:farmcart/fruits_page.dart';
 import 'package:farmcart/groceries_page.dart';
-import 'package:farmcart/vegetables_page.dart';
+import 'package:farmcart/vegetables_details.dart';
+import 'vegetables_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -58,6 +59,38 @@ class _CartDisplayState extends State<CartDisplay>
             height: 15.0,
           ),
           Text(
+            'Quick Buy',
+            style: TextStyle(
+              fontFamily: 'SourceSansPro',
+              fontSize: 40.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+
+          SizedBox(
+            height: 15.0,
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 20.0,),
+            height: 165.0,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: <Widget>[
+                buildCard('Mask', ' \₹50.0', 'images/mask.jpg',
+                    context),
+                SizedBox(width: 10.0,),
+                buildCard(
+                    'Vim', '\₹50.0', 'images/vim.jpg', context),
+                SizedBox(width: 10.0,),
+                buildCard('Chilli Powder', '\₹50.0', 'images/chillipowder.jpg',
+                    context),
+                SizedBox(width: 10.0,),
+                buildCard('Turmeric', '\₹50.0', 'images/turmeric.jpg',  context),
+                SizedBox(width: 20.0,),
+              ],
+            ),
+          ),
+          Text(
             'Categories',
             style: TextStyle(
               fontFamily: 'SourceSansPro',
@@ -104,7 +137,9 @@ class _CartDisplayState extends State<CartDisplay>
               FruitsPage(),
               GroceriesPage(),
             ]),
-          )
+          ),
+
+
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -117,4 +152,73 @@ class _CartDisplayState extends State<CartDisplay>
       bottomNavigationBar: BottomBar(),
     );
   }
+}
+
+
+Widget buildCard(String name, String price, String imgPath, context) {
+  return Padding(
+    padding: EdgeInsets.only(top: 15.0, bottom: 5.0, left: 5.0, right: 5.0),
+    child: InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => VegetableDetails(
+              assetPath: imgPath,
+              vegName: name,
+              vegPrice: price,
+            ),
+          ),
+        );
+      },
+      child: Container(
+        width: 125,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15.0),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.2),
+                spreadRadius: 3.0,
+                blurRadius: 5.0,
+              ),
+            ],
+            color: Colors.white),
+        child: Column(
+          children: <Widget>[
+            Hero(
+                tag: imgPath,
+                child: Container(
+                  height: 75.0,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(
+                          imgPath,
+                        ),
+                        fit: BoxFit.contain),
+                  ),
+                )),
+            SizedBox(
+              height: 7.0,
+            ),
+            Text(
+              price,
+              style: TextStyle(
+                color: Color(0xffcc8053),
+                fontFamily: 'SourceSansPro',
+                fontSize: 14.0,
+              ),
+            ),
+            Text(
+              name,
+              style: TextStyle(
+                color: Color(0xff575e67),
+                fontFamily: 'SourceSansPro',
+                fontSize: 18.0,
+              ),
+            ),
+                ],
+              ),
+            ),
+        ),
+      );
 }
