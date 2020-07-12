@@ -25,11 +25,12 @@ class MapScreenState extends State<ProfilePage>
       child: ListView(
         children: <Widget>[
           Flex(
+            mainAxisSize: MainAxisSize.min,
             direction: Axis.vertical,
+
             children: <Widget>[
-              Container(
-                height: MediaQuery.of(context).size.height/4,
-                color: Colors.white,
+              Flexible(
+                fit: FlexFit.loose,
                 child: Column(
                   children: <Widget>[
                     Padding(
