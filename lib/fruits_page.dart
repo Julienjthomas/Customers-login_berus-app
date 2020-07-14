@@ -1,3 +1,5 @@
+//The fruits tab implemented which is shown in start product listing page
+
 import 'package:farmcart/vegetables_details.dart';
 import 'package:flutter/material.dart';
 

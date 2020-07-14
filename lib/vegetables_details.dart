@@ -1,3 +1,5 @@
+//Generally if we click on a product from start product listing page ,Normally it goes to this page
+
 import 'package:farmcart/components/bottom_bar.dart';
 import 'package:flutter/material.dart';
 

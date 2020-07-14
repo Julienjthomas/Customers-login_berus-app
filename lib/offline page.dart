@@ -1,3 +1,5 @@
+//This is the offline page
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

@@ -1,3 +1,5 @@
+//splash screen not coonected
+
 import 'package:flutter/material.dart';
 
 class AndroidMobile1 extends StatelessWidget {

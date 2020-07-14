@@ -1,3 +1,5 @@
+//if some error occurs display this page
+
 import 'package:flutter/material.dart';
 class ErrorPage extends StatelessWidget {
   @override

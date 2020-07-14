@@ -1,3 +1,7 @@
+
+//This is the starting display page where  the products are shown
+
+
 import 'package:farmcart/components/bottom_bar.dart';
 import 'package:farmcart/fruits_page.dart';
 import 'package:farmcart/groceries_page.dart';

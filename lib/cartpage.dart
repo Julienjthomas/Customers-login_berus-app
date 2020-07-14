@@ -1,3 +1,5 @@
+//Ths is checkout cart page
+
 import 'package:flutter/material.dart';
 import 'global.dart';
 
@@ -35,10 +37,9 @@ class CartScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(15.0),
                               color: Colors.white,
                             ),
-                            child: Image.network(
-                              "${bag[i].mainImage}",
-                              fit: BoxFit.cover,
-                            ),
+                            child: Image(
+                              image: AssetImage('${bag[i].mainImage}', ),
+                            )
                           ),
                         ),
                         SizedBox(width: 15),
@@ -78,7 +79,7 @@ class CartScreen extends StatelessWidget {
                           .of(context)
                           .textTheme
                           .subtitle),
-                      Text("USD. 899.01",
+                      Text("INR 150.0",
                           style: Theme
                               .of(context)
                               .textTheme

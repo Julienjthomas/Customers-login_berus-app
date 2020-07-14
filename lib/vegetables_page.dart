@@ -1,3 +1,5 @@
+//The vegetable tab used in starting display page is implemented here
+
 import 'package:farmcart/vegetables_details.dart';
 import 'package:flutter/material.dart';
 

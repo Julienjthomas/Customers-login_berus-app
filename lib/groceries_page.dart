@@ -1,3 +1,5 @@
+//THe groceries tab view displayed in the products list page
+
 import 'package:farmcart/vegetables_details.dart';
 import 'package:flutter/material.dart';
 
