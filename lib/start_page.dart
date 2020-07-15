@@ -1,6 +1,8 @@
 //opening Sign in page
 
 import 'package:farmcart/cart.dart';
+import 'package:farmcart/sign_up.dart';
+import 'package:farmcart/signin.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +19,30 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final signUp = Container(
+      child: Row(
+        children: <Widget>[
+          Text('Does not have account?'),
+          FlatButton(
+            textColor: Colors.black,
+            child: Text(
+              'Sign up',
+              style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  return SignUp();
+                }),
+              );
+              //signup screen
+            },
+          )
+        ],
+        mainAxisAlignment: MainAxisAlignment.center,
+      ),
+    );
 
 
     return Scaffold(
@@ -68,28 +94,28 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: MaterialButton(
                             minWidth: MediaQuery.of(context).size.width,
                             padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) {
-                                  return CartDisplay();
-                                }),
-                              );
+                            onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context){
+                                return SignIn();
+                              }
+                              ),);
                             },
                             child: Row(
                               children: <Widget>[
-                                Expanded(child: Image(image: AssetImage('images/logo.png'),height: 35.0,),),
+                                Expanded(child: Image(image: AssetImage('images/logo.png'),height: 45.0,),),
                                 Padding(
-                                  padding: const EdgeInsets.only(right: 75.0,),
+                                  padding: const EdgeInsets.only(right: 70.0),
                                   child: Text('Sign in With Beru',
                                       textAlign: TextAlign.start,
                                       style: TextStyle(
                                           color: Colors.black, fontWeight: FontWeight.bold,fontSize: 16)),
                                 ),
+
                               ],
                             ),
                           ),
                         ),
+                        signUp,
                       ],
                     ),
                   ],
