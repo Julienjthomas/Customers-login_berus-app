@@ -63,38 +63,6 @@ class _CartDisplayState extends State<CartDisplay>
             height: 15.0,
           ),
           Text(
-            'Quick Buy',
-            style: TextStyle(
-              fontFamily: 'SourceSansPro',
-              fontSize: 40.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-
-          SizedBox(
-            height: 15.0,
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 20.0,),
-            height: 165.0,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: <Widget>[
-                buildCard('Mask', ' \₹50.0', 'images/mask.jpg',
-                    context),
-                SizedBox(width: 10.0,),
-                buildCard(
-                    'Vim', '\₹50.0', 'images/vim.jpg', context),
-                SizedBox(width: 10.0,),
-                buildCard('Chilli Powder', '\₹50.0', 'images/chillipowder.jpg',
-                    context),
-                SizedBox(width: 10.0,),
-                buildCard('Turmeric', '\₹50.0', 'images/turmeric.jpg',  context),
-                SizedBox(width: 20.0,),
-              ],
-            ),
-          ),
-          Text(
             'Categories',
             style: TextStyle(
               fontFamily: 'SourceSansPro',
