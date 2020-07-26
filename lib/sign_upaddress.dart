@@ -1,85 +1,89 @@
-
-//Sign Up  page
-
-import 'package:farmcart/sign_upaddress.dart';
+import 'package:farmcart/cart.dart';
 import 'package:flutter/material.dart';
 
-class SignUp extends StatefulWidget {
+class SignUpAddress extends StatefulWidget {
   @override
-  _SignUpState createState() => _SignUpState();
+  _SignUpAddressState createState() => _SignUpAddressState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignUpAddressState extends State<SignUpAddress> {
   @override
   Widget build(BuildContext context) {
     TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
-    final emailField = TextField(
+    final streetAddress = TextField(
       obscureText: true,
       style: style,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        hintText: "Email",
-        enabledBorder: OutlineInputBorder(gapPadding: 2.0,
+        hintText: "Street Address",
+        enabledBorder: OutlineInputBorder(
+            gapPadding: 2.0,
             borderRadius: BorderRadius.circular(32.0),
-            borderSide: BorderSide(color: Colors.green)),),
+            borderSide: BorderSide(color: Colors.green)),
+      ),
     );
 
-    final passwordField = TextField(
+    final locality = TextField(
       obscureText: true,
       style: style,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        hintText: "Password",
-        enabledBorder: OutlineInputBorder(gapPadding: 2.0,
+        hintText: "Locality",
+        enabledBorder: OutlineInputBorder(
+            gapPadding: 2.0,
             borderRadius: BorderRadius.circular(32.0),
-            borderSide: BorderSide(color: Colors.green)),),
+            borderSide: BorderSide(color: Colors.green)),
+      ),
     );
     final phoneNumber = TextField(
       obscureText: true,
       style: style,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        hintText: "Phone Number",
-        enabledBorder: OutlineInputBorder(gapPadding: 2.0,
+        hintText: "Pincode",
+        enabledBorder: OutlineInputBorder(
+            gapPadding: 2.0,
             borderRadius: BorderRadius.circular(32.0),
-            borderSide: BorderSide(color: Colors.green)),),
+            borderSide: BorderSide(color: Colors.green)),
+      ),
     );
-    final name = TextField(
+    final houseName = TextField(
       obscureText: true,
       style: style,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        hintText: "Name",
-        enabledBorder: OutlineInputBorder(gapPadding: 2.0,
+        hintText: "House Name / Flat No",
+        enabledBorder: OutlineInputBorder(
+            gapPadding: 2.0,
             borderRadius: BorderRadius.circular(32.0),
-            borderSide: BorderSide(color: Colors.green)),),
+            borderSide: BorderSide(color: Colors.green)),
+      ),
     );
 
-    final continueButton = Material(
+    final signUp = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(30.0),
       color: Colors.green[500],
       child: MaterialButton(
-        minWidth: MediaQuery
-            .of(context)
-            .size
-            .width,
+        minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
         onPressed: () {
-          Navigator.push(context,MaterialPageRoute(builder: (context) {
-            return SignUpAddress();
-          },
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return CartDisplay();
+              },
             ),
           );
         },
-
-        child: Text("SAVE & CONTINUE",
+        child: Text("SIGN UP",
             textAlign: TextAlign.center,
             style: style.copyWith(
                 color: Colors.white, fontWeight: FontWeight.bold)),
       ),
     );
-    final signUp = Container(
+    final login = Container(
       child: Row(
         children: <Widget>[
           Text('Do have an account?'),
@@ -98,56 +102,47 @@ class _SignUpState extends State<SignUp> {
       ),
     );
 
-
     return Scaffold(
       backgroundColor: Colors.grey,
       body: AlertDialog(
         elevation: 5.0,
-
         shape: ContinuousRectangleBorder(
             borderRadius: BorderRadius.circular(30.0)),
         title: Center(
             child: Text(
-              'Beru\'s Sign up',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23.0),
-            )),
+          'Beru\'s Sign up',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23.0),
+        )),
         content: SingleChildScrollView(
           child: ListBody(
             children: <Widget>[
               AspectRatio(aspectRatio: 10),
               Text(
-                '  Personal Details',
+                '  Address Details',
                 style: TextStyle(
-                  fontSize: 15.0,
-                  fontWeight: FontWeight.w500,fontStyle: FontStyle.italic),
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.w500,
+                    fontStyle: FontStyle.italic),
               ),
-
               AspectRatio(aspectRatio: 10),
-              name,
+              houseName,
               AspectRatio(aspectRatio: 10),
-              emailField,
+              streetAddress,
               AspectRatio(aspectRatio: 10),
-              passwordField,
+              locality,
               AspectRatio(aspectRatio: 10),
               phoneNumber,
               AspectRatio(aspectRatio: 10),
-              continueButton,
-              AspectRatio(aspectRatio: 10,),
-              signUp
-
-
+              signUp,
+              AspectRatio(
+                aspectRatio: 10,
+              ),
+              login,
             ],
           ),
         ),
-        actions: <Widget>[
-        ],
+        actions: <Widget>[],
       ),
     );
-
-
   }
-
-
-
-
 }

@@ -88,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         SizedBox(height: 30.0),
                         Material(
-                          elevation: 5.0,
+                          elevation: 4.0,
                           borderRadius: BorderRadius.circular(30.0),
                           color: Colors.white,
                           child: MaterialButton(
